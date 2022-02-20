@@ -1,17 +1,6 @@
 // Create a new <a> element containing the text "Buy Now!" 
 // with an id of "cta" after the last <p>
 
-
-// const aEl = document.createElement( "a" );
-
-// // aEl.innerHTML = "Buy Now!";
-// aEl.innerText = "Buy Now!";
-// aEl.setAttribute("id","cta");
-
-
-// const mainEl = document.getElementsByTagName( "main" );
-// aEl.appendChild(mainEl);
-
 const aEl = document.createElement('a');
 aEl.innerText = "Buy Now!";
 aEl.setAttribute("id","cta");

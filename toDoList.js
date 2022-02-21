@@ -1,44 +1,28 @@
+
+
+const list = document.getElementsByClassName('today-list');
+
+const listItems = document.querySelectorAll('li')[0];
+
+const deleteButton = document.getElementsByClassName('delete');
+
+console.log(listItems);
+console.log(deleteButton);
+
+
 // If an li element is clicked, toggle the class "done" on the <li>
 
-
-  const list = document.getElementsByClassName('today-list');
-  const listItems = document.getElementsByTagName('li')[0];
-  // return listItems;
-  
- let done =  listItems.addEventListener('click', e => {
-    let li = e.target;
-    if (li.getAtrribute('class') !== "done") {
-      li.setAttribute('class', "done");
-    } else {
-    }
-    });
-
-
-  // const betterToDos = 
-  // document.querySelectorAll('#better-to-do li');
-
-
-
-// for (let i = 0; i < tasks.children.length; i++) {
-//    if taskListClass[i].getAttribute("class") !== 'done' {
-//      task
-//    }
-
-
-
-
-// bestToDoList.addEventListener('click', e => {
-// let li = e.target;
-// if (li.innerHTML.indexOf('□') !== -1) {
-// li.innerHTML = li.innerHTML.replace('□',  '✓');
-// } else {
-// li.innerHTML = li.innerHTML.replace('✓',  '□');
-// }
-// });
-
+listItems.addEventListener('click', () => {
+  listItems.classList.toggle("done");
+});
 
 
 // If a delete link is clicked, delete the li element / remove from the DOM
+
+deleteButton.addEventListener('click', () => {
+   
+});
+
 
 // If an 'Add' link is clicked, adds the item as a new list item with
 // addListItem function has been started to help you get going!
@@ -50,5 +34,5 @@
 //   const input = this.parentNode.getElementsByTagName('input')[0];
 //   const text = input.value; // use this text to create a new <li>
 
-  // Finish function here
+// Finish function here
 // };

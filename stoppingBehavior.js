@@ -7,7 +7,7 @@ document.getElementById('cat').addEventListener('click', (e) => {
 // When clicked, "More info" link should alert "Here's some info"
 // instead of going to a new webpage
 
-document.getElementById("more-info").addEventListener('click', () => {
+document.getElementById("more-info").addEventListener('click', (e) => {
   e.preventDefault();
   alert("Here's some info");
 });
@@ -29,7 +29,7 @@ document.getElementById("more-info").addEventListener('click', () => {
 
 document.getElementById('dog').addEventListener('click', () => {
   // removeMeow();
-  document.getElementById('cat').removeEventListener('click', () => {
+  document.getElementById('cat').removeEventListener('click', (e) => {
     alert('meow!');
   });
   alert('Bow Wow!');

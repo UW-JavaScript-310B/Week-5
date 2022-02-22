@@ -43,3 +43,16 @@ li.done span {
 .add-item {
   background-color: darkturquoise;
 }
+.btn{
+  text-align: center;
+    
+  width: 370px;
+}
+#plus,#minus{
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  background: cadetblue;
+  margin: 0px 5px;
+
+}

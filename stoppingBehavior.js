@@ -17,21 +17,9 @@ document.getElementById("more-info").addEventListener('click', (e) => {
 // Should *not* alert "meow"
 
 
-// document.getElementById('cat').removeEventListener('click', () => {
-//   alert('meow!');
-// });
+document.getElementById('dog').addEventListener('click', (e) => {
 
-// removeMeow = function () {
-//   document.getElementById('cat').removeEventListener('click', () => {
-//     alert('meow!');
-//   });
-// }
-
-document.getElementById('dog').addEventListener('click', () => {
-  // removeMeow();
-  document.getElementById('cat').removeEventListener('click', (e) => {
-    alert('meow!');
-  });
+  e.stopPropagation();
   alert('Bow Wow!');
 
 });

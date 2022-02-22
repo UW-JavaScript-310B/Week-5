@@ -25,14 +25,17 @@ todayList.addEventListener('click', e => {
 
     // When the delete link is clicked
     case 'A':
-      // If the deleted item is the selected item, reset var liSelectedItem
-      if (liItem.parentNode === liSelectedItem) {
-        liSelectedItem = undefined;
+      // Show a confirmation message before deleting
+      if (confirm('Are you sure?')) {
+        // If the deleted item is the selected item, reset var liSelectedItem
+        if (liItem.parentNode === liSelectedItem) {
+          liSelectedItem = undefined;
+        }
+        // If a delete link is clicked, delete the li element / remove from the DOM
+        todayList.removeChild(liItem.parentNode);
+        // Set visible for up & down buttons if today-list has more than 1 item.
+        document.getElementById('btn').style.display = todayList.childElementCount > 1 ? 'block':'none';
       }
-      // If a delete link is clicked, delete the li element / remove from the DOM
-      todayList.removeChild(liItem.parentNode);
-      // Set visible for up & down buttons if today-list has more than 1 item.
-      document.getElementById('btn').style.display = todayList.childElementCount > 1 ? 'block':'none';
       break;
 
     // Others
@@ -80,7 +83,7 @@ const addItem = document.getElementsByClassName('add-item')[0];
 // Fires when <add-item> element is clicked
 addItem.addEventListener('click', addListItem);
 
-// Create function "moveItem" to move up & down the selected item from the list
+// Define function "btn" to move up & down the selected item from the list
 const btn = document.getElementById('btn');
 btn.addEventListener('click', e => {
   // Check if an item in the list is selected or not

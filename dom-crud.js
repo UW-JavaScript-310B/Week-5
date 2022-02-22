@@ -1,10 +1,11 @@
 // Create a new <a> element containing the text "Buy Now!" 
 // with an id of "cta" after the last <p>
+let pElements = document.querySelectorAll('p');
+let lastP = pElements[pElements.length - 1];
 let newAElement = document.createElement('a');
 let newAElementText = document.createTextNode("Buy Now!");
 newAElement.appendChild(newAElementText);
 newAElement.setAttribute('id', 'cta');
-let lastP = document.querySelectorAll('p')[0];
 lastP.after(newAElement);
 
 

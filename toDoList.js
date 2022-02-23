@@ -6,7 +6,6 @@ const list = document.querySelector('ul.today-list');
 console.log(list);
 
 const listItems = document.querySelectorAll('li');
-
 console.log(listItems);
 
 // array1.forEach(element => console.log(element));
@@ -33,18 +32,30 @@ const deleteButton = document.getElementsByClassName('delete')[0];
 //identiy li parent for the button element
 const buttonParent = deleteButton.parentNode
 
+//get ul for button
+
+const buttonUL = deleteButton.closest('ul.today-list');
 
 console.log(deleteButton);
 console.log(buttonParent);
+console.log(buttonUL);
 
 //upon click keep removing the first child of the parent until there are no more children to remove.  This insures both the span and a tags for the li are deleted
+
+
 deleteButton.addEventListener('click', (e) => {
   while (buttonParent.firstChild) {
     buttonParent.removeChild(buttonParent.firstChild);
-
   }
   buttonParent.remove();
 });
+
+// buttonUL.addEventListener('click', (e) => {
+//   const a = e.target;
+//   while (buttonUL.firstChild) {
+//     buttonUL.removeChild(buttonUL.firstChild);
+//   }
+// });
 
 // If an 'Add' link is clicked, adds the item as a new list item with
 // addListItem function has been started to help you get going!

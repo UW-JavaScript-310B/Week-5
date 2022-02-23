@@ -24,19 +24,15 @@ for (let i=0; i<deleteRef.length; i++){
 
     let parentLi = deleteRef[i].parentNode
 
-    let parentItem=parentLi.parentNode
+    let parentUl=parentLi.parentNode
 
-    parentItem.removeChild(parentLi)
-
-    //deleteRef[i].remove
-
-    //deleteRef[i].className='done'
+    parentUl.removeChild(parentLi)
 
   })
 
 }
 
-
+let addElem = document.getElementsByClassName('add-item')
 
 // If an 'Add' link is clicked, adds the item as a new list item with
 // addListItem function has been started to help you get going!
@@ -46,5 +42,40 @@ const addListItem = function(e) {
   const input = this.parentNode.getElementsByTagName('input')[0];
   const text = input.value; // use this text to create a new <li>
 
+  console.log(text)
+
   // Finish function here
+
+  // need to access ul from div
+
+  const mainElem = this.parentNode.parentNode
+
+  const ulElem = mainElem.getElementsByTagName('ul')[0]
+
+  console.log(ulElem)
+
+  const liElem = document.createElement('li')
+
+  const spanElem = document.createElement('span')
+
+  spanElem.textContent=text
+
+  const aElem = document.createElement('a')
+
+  aElem.className="delete"
+
+  const link = document.createTextNode('Delete')
+
+  aElem.appendChild(link)
+
+  liElem.appendChild(spanElem)
+
+  liElem.appendChild(aElem)
+
+  ulElem.append(liElem)
+
 };
+
+addElem[0].addEventListener('click', addListItem)
+
+// code can add li, but then breaks the delete functionality

@@ -8,4 +8,4 @@ sunlink.forEach((el)=> el.style.color = 'orange');
 
 // Change the class of the second <li> from to "sun" to "cloudy"
 var list = document.getElementsByTagName("li");
-list[2].className = 'cloudy';
+list[1].className = 'cloudy';

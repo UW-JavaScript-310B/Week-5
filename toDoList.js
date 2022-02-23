@@ -29,6 +29,15 @@ const addListItem = function (event) {
     const ulElem = document.getElementsByClassName("today-list")[0];
     ulElem.removeChild(ulElem.childNodes[1]); //TODO - remove the hard coding
   });
+
+  let li = event.target.closest("li");
+  const beeList = document.getElementsByClassName("today-list")[0];
+  //let ulList = document.querySelector(".today-list");
+  let nodes = Array.from(beeList.children);
+  //or if you want to not depend on externally defined variables
+  //var nodes = Array.from(li.closest("ul").children);
+  var tempIndex = nodes.indexOf(li);
+  console.log(`index = ${tempIndex}`);
 };
 
 const addButton = document.querySelector(".add-item");

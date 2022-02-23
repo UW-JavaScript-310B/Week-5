@@ -5,22 +5,20 @@
 const list = document.querySelector('ul.today-list');
 console.log(list);
 
-const listItems = document.querySelectorAll('li');
+let listItems = document.querySelectorAll('li');
 console.log(listItems);
 
-// array1.forEach(element => console.log(element));
-const listChildren = list.children;
-console.log(listChildren);
+// const listChildren = list.children;
+// console.log(listChildren);
 
 //toggle the class for the li element under the parent list when it is clicked
 
 list.addEventListener('click', e => {
+  console.log('clicked');
   const li = e.target;
- listItems.forEach(listItems =>{
-  listItems.classList.toggle("done");
-});
+  listItems.forEach(e => e.classList.toggle("done"));
 
-// elements.forEach(x => x.classList.toggle('otherClass');
+  // elements.forEach(x => x.classList.toggle('otherClass');
 
 });
 

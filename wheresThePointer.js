@@ -5,7 +5,7 @@
 const cells = document.querySelectorAll('td')
 cells.forEach(e => e.addEventListener('click', function(e) {
     console.log("clicked");
-    let x = e.clientX;
-    let y = e.clientY;
+    let x = e.pageX;
+    let y = e.pageY;
     this.innerHTML = `(${x}, ${y})`;
 }));

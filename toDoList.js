@@ -4,15 +4,39 @@ let liRef = document.getElementsByTagName('li')
 
 for (let i=0; i<liRef.length; i++){
 
-  liRef[i].addEventListener('click',(event)=>{
+  liRef[i].addEventListener('click',()=>{
 
-    liRef[i].className='done'
+    if (liRef[i]){
+      liRef[i].className='done'
+    }
 
   })
 
 }
 
 // If a delete link is clicked, delete the li element / remove from the DOM
+
+let deleteRef = document.getElementsByClassName('delete')
+
+for (let i=0; i<deleteRef.length; i++){
+
+  deleteRef[i].addEventListener('click',()=>{
+
+    let parentLi = deleteRef[i].parentNode
+
+    let parentItem=parentLi.parentNode
+
+    parentItem.removeChild(parentLi)
+
+    //deleteRef[i].remove
+
+    //deleteRef[i].className='done'
+
+  })
+
+}
+
+
 
 // If an 'Add' link is clicked, adds the item as a new list item with
 // addListItem function has been started to help you get going!

@@ -29,6 +29,7 @@ a {
   border-radius: 5px;
   font-size: 0.8em;
   color: white;
+  cursor: pointer;
 }
 
 li.done span {
@@ -42,4 +43,22 @@ li.done span {
 
 .add-item {
   background-color: darkturquoise;
+}
+
+.button {
+  background-color: green;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 5px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+li.selected span {
+  background-color: aqua;
 }

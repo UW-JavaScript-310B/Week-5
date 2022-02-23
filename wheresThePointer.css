@@ -7,3 +7,7 @@ td {
   width: 75px;
   height: 75px
 }
+.cell {
+  text-align: center;
+  font-weight: bold;
+}

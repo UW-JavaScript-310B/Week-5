@@ -1,0 +1,32 @@
+* {
+  box-sizing : border-box;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.button {
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+.plus {
+  background-color: #4CAF50;
+}
+.minus {
+  background-color: red;
+}
+.result {
+  color: blue;
+  font-weight: bold;
+}

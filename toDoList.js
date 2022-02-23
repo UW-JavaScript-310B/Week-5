@@ -1,5 +1,17 @@
 // If an li element is clicked, toggle the class "done" on the <li>
 
+let liRef = document.getElementsByTagName('li')
+
+for (let i=0; i<liRef.length; i++){
+
+  liRef[i].addEventListener('click',(event)=>{
+
+    liRef[i].className='done'
+
+  })
+
+}
+
 // If a delete link is clicked, delete the li element / remove from the DOM
 
 // If an 'Add' link is clicked, adds the item as a new list item with

@@ -38,6 +38,8 @@ li.done span {
 
 .delete {
   background-color: darkred;
+  margin-left: 5px;
+  padding:6px;
 }
 
 .add-item {

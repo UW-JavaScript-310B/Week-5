@@ -3,7 +3,10 @@ document.querySelector("ul").addEventListener("click", updateDone);
 
 function updateDone(e) {
   if(e.target.localName === 'li') {
-    e.target.classList.add('done');
+    e.target.classList.toggle('done');
+  }
+  else if(e.target.localName === 'span') {
+    e.target.parentNode.classList.toggle('done');
   }
 }
 
@@ -22,8 +25,8 @@ function deleteItem(e) {
 
 const addListItem = function(e) {
   e.preventDefault();
-  const input = this.parentNode.getElementsByTagName('input')[0];
-  const text = input.value;
+
+  const text = this.parentNode.getElementsByTagName('input')[0].value;
 
   const span = document.createElement("span");
   span.innerText = text;

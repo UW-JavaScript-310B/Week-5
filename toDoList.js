@@ -1,11 +1,18 @@
 // If an li element is clicked, toggle the class "done" on the <li>
 let clickedLiItem = document.querySelectorAll('li');
-clickedLiItem.forEach((element) => 
-  element.addEventListener('click', function() {
-    element.classList.add("done");
+clickedLiItem.forEach((clickedElement) => 
+  clickedElement.addEventListener('click', function() {
+    clickedElement.classList.add("done");
 })); 
 
 // If a delete link is clicked, delete the li element / remove from the DOM
+let deleteableLink = document.querySelectorAll('a.delete');
+deleteableLink.forEach((deletableElement) => 
+  deletableElement.addEventListener('click', function(e) {
+    let parentEl = deletableElement.parentElement;
+    deletableElement.remove();
+    parentEl.remove();
+  }));
 
 // If an 'Add' link is clicked, adds the item as a new list item with
 // addListItem function has been started to help you get going!

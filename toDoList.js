@@ -1,65 +1,31 @@
 // If an li element is clicked, toggle the class "done" on the <li>
 
 // done was fixed by adding an event listener in the addListItem Function
-// delete not working
+//fixed done by using the span element instead of li element. If a li element is used,
+//it interferes with the delete tag.
+//fixed delete by adding an event listener in the addListItem Function
+
+let deleteRef = document.getElementsByClassName('delete')
 
 const doneItem = function(e) {
   e.preventDefault();
   if (this) {
-    this.className = 'done'
+    this.parentNode.className = 'done'
   }
 
 }
 
-let liRef = document.getElementsByTagName('li')
+let spanRef = document.getElementsByTagName('span')
 
-// for (let i=0; i<liRef.length; i++){
-//
-//   liRef[i].addEventListener('click',()=>{
-//
-//     if (liRef[i]){
-//       liRef[i].className='done'
-//     }
-//
-//   })
-//
-// }
+for (let i=0; i<spanRef.length; i++){
 
-for (let i=0; i<liRef.length; i++){
-
-  liRef[i].addEventListener('click', doneItem)
+  spanRef[i].addEventListener('click', doneItem)
 
 }
 
-// let spanRef = document.getElementsByTagName('span')
-//
-// for (let i=0; i<spanRef.length; i++){
-//
-//   spanRef[i].addEventListener('click',()=>{
-//
-//     if (spanRef[i]){
-//
-//       liReference = spanRef[i].parentNode
-//       liReference[i].className='done'
-//     }
-//
-//   })
-//
-// }
-
-// If a delete link is clicked, delete the li element / remove from the DOM
-
-let deleteRef = document.getElementsByClassName('delete')
-
-//console.log(deleteRef.length)
 
 const deleteListItem = function(e) {
   e.preventDefault();
-
-  // const input = this.parentNode.getElementsByTagName('input')[0];
-  // const text = input.value; // use this text to create a new <li>
-  //
-  // console.log(text)
 
   const liEl=this.parentNode
 
@@ -73,20 +39,6 @@ const deleteListItem = function(e) {
 
 }
 
-// for (let i=0; i<deleteRef.length; i++){
-//
-//   deleteRef[i].addEventListener('click',()=>{
-//
-//     let parentLi = deleteRef[i].parentNode
-//
-//     let parentUl=parentLi.parentNode
-//
-//     parentUl.removeChild(parentLi)
-//
-//   })
-//
-// }
-
 for (let i=0; i<deleteRef.length; i++){
 
   //console.log(deleteRef.length)
@@ -94,10 +46,6 @@ for (let i=0; i<deleteRef.length; i++){
   deleteRef[i].addEventListener('click', deleteListItem)
 
 }
-
-// deleteRef[0].addEventListener('click', deleteListItem)
-
-//addElem[0].addEventListener('click', deleteListItem)
 
 let addElem = document.getElementsByClassName('add-item')
 
@@ -109,10 +57,6 @@ const addListItem = function(e) {
   const input = this.parentNode.getElementsByTagName('input')[0];
   const text = input.value; // use this text to create a new <li>
 
-  console.log(text)
-
-  //console.log(deleteRef.length)
-
   // Finish function here
 
   // need to access ul from div
@@ -120,8 +64,6 @@ const addListItem = function(e) {
   const mainElem = this.parentNode.parentNode
 
   const ulElem = mainElem.getElementsByTagName('ul')[0]
-
-  //console.log(ulElem)
 
   const liElem = document.createElement('li')
 
@@ -141,16 +83,13 @@ const addListItem = function(e) {
 
   liElem.appendChild(aElem)
 
-  liElem.addEventListener('click', doneItem)
+  spanElem.addEventListener('click', doneItem)
+
+  aElem.addEventListener('click', deleteListItem)
 
   ulElem.append(liElem)
-
-  console.log(deleteRef.length)
 
 };
 
 addElem[0].addEventListener('click', addListItem)
 
-//console.log(deleteRef.length)
-
-// code can add li, but then breaks the delete functionality

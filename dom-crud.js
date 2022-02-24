@@ -21,6 +21,6 @@ list[2].className = 'highlight';
 
 // Remove (delete) the last paragraph
 // (starts with "Available for purchase now…")
-const mainEl = document.getElementsByTagName('main')[0];
-let removeEl = mainEl.removeChild('p');
-mainEl.replaceChild(p,);
+let mainEl = document.getElementsByTagName('p')[0];
+console.log(mainEl);
+mainEl.remove('p');

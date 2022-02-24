@@ -29,11 +29,11 @@ const deleteListItem = function(e) {
 
   const liEl=this.parentNode
 
-  console.log(liEl)
+  //console.log(liEl)
 
   const ulEl=liEl.parentNode
 
-  console.log(ulEl)
+  //console.log(ulEl)
 
   ulEl.removeChild(liEl)
 

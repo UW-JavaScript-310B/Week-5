@@ -24,28 +24,42 @@ const addListItem = function (event) {
 
   //TODO - figure out how to clear input box
   //input.innerText = "";
-  const tempDeleteButton = document.querySelector("ul li:last-child");
-  tempDeleteButton.addEventListener("click", () => {
-    const ulElem = document.getElementsByClassName("today-list")[0];
-    ulElem.removeChild(ulElem.childNodes[1]); //TODO - remove the hard coding
-  });
+  // const tempDeleteButton = document.querySelector("ul li:last-child");
+  // tempDeleteButton.addEventListener("click", () => {
+  //   const ulElem = document.getElementsByClassName("today-list")[0];
+  //   ulElem.removeChild(ulElem.childNodes[1]); //TODO - remove the hard coding
+  // });
+  const deleteButton = document.querySelector("ul li:last-child");
+  deleteButton.addEventListener("click", deleteListItem);
 
-  let li = event.target.closest("li");
-  const beeList = document.getElementsByClassName("today-list")[0];
-  //let ulList = document.querySelector(".today-list");
-  let nodes = Array.from(beeList.children);
-  //or if you want to not depend on externally defined variables
-  //var nodes = Array.from(li.closest("ul").children);
-  var tempIndex = nodes.indexOf(li);
-  console.log(`index = ${tempIndex}`);
+  //const beeList = document.getElementsByClassName("today-list")[0];
+  const beeList = document.getElementsByClassName("ul li:last-child")[0];
 };
+
+const deleteListItem = function (event) {
+  console.log(`test`);
+  const ulElem = document.getElementsByClassName("today-list")[0];
+  const liElem = ulElem.children;
+  for (item in liElem) {
+    console.log(item);
+  }
+  ulElem.removeChild(ulElem.childNodes[1]); //TODO - remove the hard coding
+};
+
+/*
+   var allSubjectName = document.querySelectorAll(".subjectName");
+   for (var index = 0; index <allSubjectName.length; index++){
+      allSubjectName[index].addEventListener("click", function(){
+         this.classList.toggle("active");
+      });
+      allSubjectName[index].querySelector("button").addEventListener("click",
+      function(){
+         this.closest(".subjectName").remove();
+      });
+*/
 
 const addButton = document.querySelector(".add-item");
 const deleteButton = document.querySelector(".delete");
 
 addButton.addEventListener("click", addListItem);
-
-deleteButton.addEventListener("click", () => {
-  const ulElem = document.getElementsByClassName("today-list")[0];
-  ulElem.removeChild(ulElem.childNodes[1]); //TODO - remove the hard coding
-});
+deleteButton.addEventListener("click", deleteListItem);

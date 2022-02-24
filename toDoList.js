@@ -25,21 +25,14 @@ const addListItem = function (event) {
 
   //TODO - figure out how to clear input box
   //input.innerText = "";
-  // const tempDeleteButton = document.querySelector("ul li:last-child");
-  // tempDeleteButton.addEventListener("click", () => {
-  //   const ulElem = document.getElementsByClassName("today-list")[0];
-  //   ulElem.removeChild(ulElem.childNodes[1]); //TODO - remove the hard coding
-  // });
   console.log("add");
-  console.log(
-    event.target.parentNode.previousElementSibling.querySelector(
-      "ul li a:last-child"
-    )
-  );
 
-  const deleteButton = document.querySelector("ul li a:last-child");
+  const deleteButton =
+    event.target.parentNode.previousElementSibling.querySelector(
+      ".delete:last-child"
+    );
   console.log(deleteButton);
-  deleteButton.addEventListener("click", deleteListItem);
+  deleteButton.addEventListener("click", alertEvent);
 };
 
 const clickListItem = function (event) {
@@ -51,6 +44,10 @@ const deleteListItem = function (event) {
   console.log(event.target.parentNode);
   console.log(event.target.parentNode.parentNode);
   event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+};
+
+const alertEvent = function (event) {
+  alert(event.target);
 };
 
 /*

@@ -39,6 +39,12 @@ li.done span {
 .delete {
   background-color: darkred;
 }
+.up {
+  background-color: rgb(43, 23, 255);
+}
+.down {
+  background-color: rgb(0, 139, 56);
+}
 
 .add-item {
   background-color: darkturquoise;

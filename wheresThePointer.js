@@ -2,9 +2,8 @@
 // elements.  Should update that element's innerHTML to be the
 // x, y coordinates of the mouse at the time of the click
 const updateTable = function (event) {
-  //   //TODO - fix this. We are logging to the wrong cell
   var items = this.getElementsByTagName("td");
-  items[0].innerHTML = `${event.x}, ${event.y}`;
+  event.target.innerHTML = `${event.x}, ${event.y}`;
 };
 
 const cells = document.querySelectorAll("tr");

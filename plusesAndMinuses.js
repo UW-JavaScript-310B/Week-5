@@ -4,13 +4,5 @@
 let header = document.querySelector("h2");
 header.innerText = 0;
 
-document.getElementById("increment").addEventListener("click", addOne);
-document.getElementById("decrememt").addEventListener("click", subtractOne);
-
-function addOne() {
-  header.innerText++;
-}
-
-function subtractOne() {
-  header.innerText--;
-}
+document.getElementById("increment").addEventListener("click", () => header.innerText++);
+document.getElementById("decrememt").addEventListener("click", () => header.innerText--);

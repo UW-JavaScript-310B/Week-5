@@ -25,14 +25,13 @@ const addListItem = function (event) {
 
   //TODO - figure out how to clear input box
   //input.innerText = "";
-  console.log("add");
-
-  const deleteButton =
+  const lastRow =
     event.target.parentNode.previousElementSibling.querySelector(
-      ".delete:last-child"
+      "li:last-child"
     );
-  console.log(deleteButton);
-  deleteButton.addEventListener("click", alertEvent);
+  document.querySelector("ul.today-list li:last-child");
+  const deleteButton = lastRow.querySelector(".delete");
+  deleteButton.addEventListener("click", deleteListItem);
 };
 
 const clickListItem = function (event) {
@@ -49,19 +48,6 @@ const deleteListItem = function (event) {
 const alertEvent = function (event) {
   alert(event.target);
 };
-
-/*
-review https://www.tutorialspoint.com/how-to-remove-li-elements-on-button-click-in-javascript
-   var allSubjectName = document.querySelectorAll(".subjectName");
-   for (var index = 0; index <allSubjectName.length; index++){
-      allSubjectName[index].addEventListener("click", function(){
-         this.classList.toggle("active");
-      });
-      allSubjectName[index].querySelector("button").addEventListener("click",
-      function(){
-         this.closest(".subjectName").remove();
-      });
-*/
 
 const addButton = document.querySelector(".add-item");
 const deleteButton = document.querySelector(".delete");

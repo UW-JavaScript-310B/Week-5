@@ -13,6 +13,7 @@ const addListItem = function (event) {
   //TODO - Split this into a function
   const list = document.getElementsByClassName("today-list")[0];
   const listItem = document.createElement(`li`);
+  listItem.addEventListener("click", clickListItem);
   const listSpan = document.createElement(`span`);
   const listATag = document.createElement(`a`);
   listSpan.innerText = text + " "; //TODO - figure out why we need a space here
@@ -29,24 +30,31 @@ const addListItem = function (event) {
   //   const ulElem = document.getElementsByClassName("today-list")[0];
   //   ulElem.removeChild(ulElem.childNodes[1]); //TODO - remove the hard coding
   // });
-  const deleteButton = document.querySelector("ul li:last-child");
-  deleteButton.addEventListener("click", deleteListItem);
+  console.log("add");
+  console.log(
+    event.target.parentNode.previousElementSibling.querySelector(
+      "ul li a:last-child"
+    )
+  );
 
-  //const beeList = document.getElementsByClassName("today-list")[0];
-  const beeList = document.getElementsByClassName("ul li:last-child")[0];
+  const deleteButton = document.querySelector("ul li a:last-child");
+  console.log(deleteButton);
+  deleteButton.addEventListener("click", deleteListItem);
+};
+
+const clickListItem = function (event) {
+  event.target.parentNode.setAttribute("class", "done");
 };
 
 const deleteListItem = function (event) {
   console.log(`test`);
-  const ulElem = document.getElementsByClassName("today-list")[0];
-  const liElem = ulElem.children;
-  for (item in liElem) {
-    console.log(item);
-  }
-  ulElem.removeChild(ulElem.childNodes[1]); //TODO - remove the hard coding
+  console.log(event.target.parentNode);
+  console.log(event.target.parentNode.parentNode);
+  event.target.parentNode.parentNode.removeChild(event.target.parentNode);
 };
 
 /*
+review https://www.tutorialspoint.com/how-to-remove-li-elements-on-button-click-in-javascript
    var allSubjectName = document.querySelectorAll(".subjectName");
    for (var index = 0; index <allSubjectName.length; index++){
       allSubjectName[index].addEventListener("click", function(){
@@ -60,6 +68,7 @@ const deleteListItem = function (event) {
 
 const addButton = document.querySelector(".add-item");
 const deleteButton = document.querySelector(".delete");
-
+const listItem = document.getElementsByClassName("today-list")[0];
 addButton.addEventListener("click", addListItem);
+listItem.addEventListener("click", clickListItem);
 deleteButton.addEventListener("click", deleteListItem);

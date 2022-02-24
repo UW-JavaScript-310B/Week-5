@@ -9,6 +9,38 @@ const addListItem = function(e) {
   e.preventDefault();
   const input = this.parentNode.getElementsByTagName('input')[0];
   const text = input.value; // use this text to create a new <li>
-
-  // Finish function here
+  input.value = "";
+  
+  let addToList = document.querySelector('.today-list');
+    liTag = document.createElement('li');
+      addToList.appendChild(liTag);
+        spanTag = document.createElement('span');
+      liTag.appendChild(spanTag);
+          spanTag.innerHTML = text;
+          deleteItem = document.createElement('a'); 
+          deleteItem.classList.add('delete');
+          deleteItem.innerHTML = 'Delete';
+      liTag.appendChild(deleteItem); 
+  
 };
+
+
+const listItemClickHandler = function(e) {
+  if (e.target.className === 'delete') {
+    const deleteButton = e.target;
+    const item = deleteButton.parentNode;
+    todayList.removeChild(item);
+
+   } else {
+ 
+    const underlineItem = e.target.parentNode;
+      underlineItem.classList.toggle('done');
+   }
+}
+
+const addButton = document.querySelector('.add-item');
+addButton.addEventListener('click', addListItem);
+
+const todayList = document.querySelector('.today-list');
+todayList.addEventListener('click', listItemClickHandler);
+

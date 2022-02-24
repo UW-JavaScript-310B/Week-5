@@ -16,24 +16,31 @@ const addListItem = function(e) {
       addToList.appendChild(liTag);
         spanTag = document.createElement('span');
       liTag.appendChild(spanTag);
-         spanTag.innerHTML = text;
-         deleteItem = document.createElement('a'); 
-         deleteItem.classList.add('delete');
-         deleteItem.innerHTML = ' Delete';
+          spanTag.innerHTML = text;
+          deleteItem = document.createElement('a'); 
+          deleteItem.classList.add('delete');
+          deleteItem.innerHTML = 'Delete';
       liTag.appendChild(deleteItem); 
   
 };
 
 
-const deleteListItem = function(e) {
-  const deleteButton = e.target;
-  const item = deleteButton.parentNode;
-  todayList.removeChild(item);
+const listItemClickHandler = function(e) {
+  if (e.target.className === 'delete') {
+    const deleteButton = e.target;
+    const item = deleteButton.parentNode;
+    todayList.removeChild(item);
+
+   } else {
+ 
+    const underlineItem = e.target.parentNode;
+      underlineItem.classList.toggle('done');
+   }
 }
 
 const addButton = document.querySelector('.add-item');
 addButton.addEventListener('click', addListItem);
 
 const todayList = document.querySelector('.today-list');
-todayList.addEventListener('click', deleteListItem);
+todayList.addEventListener('click', listItemClickHandler);
 

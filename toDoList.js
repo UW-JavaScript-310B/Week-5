@@ -1,4 +1,9 @@
 // If an li element is clicked, toggle the class "done" on the <li>
+let clickedLiItem = document.querySelectorAll('li');
+clickedLiItem.forEach((element) => 
+  element.addEventListener('click', function() {
+    element.classList.add("done");
+})); 
 
 // If a delete link is clicked, delete the li element / remove from the DOM
 

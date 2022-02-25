@@ -35,18 +35,14 @@ const addListItem = function (event) {
 };
 
 const clickListItem = function (event) {
-  event.target.parentNode.setAttribute("class", "done");
+  event.target.parentNode.classList.toggle("done");
 };
 
 const deleteListItem = function (event) {
-  console.log(`test`);
+  console.log(`delete`);
   console.log(event.target.parentNode);
   console.log(event.target.parentNode.parentNode);
   event.target.parentNode.parentNode.removeChild(event.target.parentNode);
-};
-
-const alertEvent = function (event) {
-  alert(event.target);
 };
 
 const addButton = document.querySelector(".add-item");

@@ -27,8 +27,15 @@ li {
 a {
   padding: 3px 6px;
   border-radius: 5px;
-  font-size: 0.8em;
+}
+
+#up, #down {
+  font-size: 2em;
+}
+
+.delete {
   color: white;
+  font-size: 0.8em;
 }
 
 li.done span {
@@ -38,6 +45,8 @@ li.done span {
 
 .delete {
   background-color: darkred;
+  margin-left: 5px;
+  padding:6px;
 }
 
 .add-item {

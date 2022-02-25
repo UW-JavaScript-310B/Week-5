@@ -4,9 +4,11 @@ let liArr = document.getElementsByTagName('li');
 
 for (let i of liArr)
 {
-  i.addEventListener('click', function()
+  console.log(i);
+  i.addEventListener('click', e =>
   {
-    i.classList.toggle('li.done');
+    let li = e.target;
+    li.classList.toggle('done');
   })
   
 }
@@ -18,12 +20,17 @@ let deleteArr = document.getElementsByClassName('delete');
 //remove the clicked node
 for (let node of deleteArr)
 {
-  node.addEventListener('click', function()
+  node.addEventListener('click', e =>
   {
-    let liNode = node.parentNode;
+    let n = e.target;
+    //access parent of the a node which is a li node
+    let liNode = n.parentNode;
+    //check if the parents of li node which is ul node exist
     if (liNode.parentNode)
     {
+      // remove the li node
       liNode.parentNode.removeChild(liNode);
+      
     }
     
   })
@@ -70,4 +77,4 @@ const btnAdd = document.querySelector('.add-item');
 btnAdd.addEventListener('click',function(event){
  event.preventDefault();
  addListItem(event);
-});
+},true);

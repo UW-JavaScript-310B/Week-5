@@ -8,20 +8,27 @@
 const addListItem = function (event) {
   event.preventDefault();
   const input = this.parentNode.getElementsByTagName("input")[0];
+  console.log(input);
+  const inputElement = input.parentNode;
+  console.log(inputElement);
+  const listElement = inputElement.previousElementSibling;
+  console.log(listElement);
   const text = input.value; // use this text to create a new <li>
   //TODO - add logic if text is blank to default it
   //TODO - Split this into a function
-  const list = document.getElementsByClassName("today-list")[0];
+
   const listItem = document.createElement(`li`);
-  listItem.addEventListener("click", clickListItem);
   const listSpan = document.createElement(`span`);
   const listATag = document.createElement(`a`);
-  listSpan.innerText = text + " "; //TODO - figure out why we need a space here
+  listSpan.innerText = text + " ";
   listATag.setAttribute("class", "delete");
   listATag.innerText = "Delete";
-  list.appendChild(listItem);
+  listElement.appendChild(listItem);
   listItem.appendChild(listSpan);
-  listSpan.appendChild(listATag);
+  listItem.appendChild(listATag);
+  listSpan.addEventListener("click", clickListItem);
+  //console.log("TESTING");
+  //console.log(listSpan);
 
   //TODO - figure out how to clear input box
   //input.innerText = "";
@@ -47,7 +54,8 @@ const deleteListItem = function (event) {
 
 const addButton = document.querySelector(".add-item");
 const deleteButton = document.querySelector(".delete");
-const listItem = document.getElementsByClassName("today-list")[0];
+const listElement = document.getElementsByClassName("today-list");
+const listItem = document.querySelector("ul.today-list li:first-child span");
 addButton.addEventListener("click", addListItem);
 listItem.addEventListener("click", clickListItem);
 deleteButton.addEventListener("click", deleteListItem);

@@ -20,5 +20,5 @@ thirdListElement.setAttribute("class", "highlight");
 // Remove (delete) the last paragraph
 // (starts with "Available for purchase now…")
 const mainElement = document.getElementsByTagName("main")[0];
-const paragraphElement = document.getElementByTagName("p")[0];
+const paragraphElement = document.getElementsByTagName("p")[0];
 mainElement.removeChild(paragraphElement);

@@ -3,17 +3,15 @@ let todayList = document.querySelector('.today-list');
 // If an li element is clicked, toggle the class "done" on the <li>
 
 todayList.addEventListener('click', function(e) {
-  const toggleDone = e.target;
-  if (toggleDone.localName === 'span')
-    toggleDone.parentNode.classList.toggle('done');
+  if (e.target.localName === 'span')
+  e.target.parentNode.classList.toggle('done');
   } );
 
 // If a delete link is clicked, delete the li element / remove from the DOM
 
 const delListItem = function(e) {
-  const deleteTarget = e.target;
-  if (deleteTarget.className === 'delete') {
-    deleteTarget.parentNode.remove(); 
+  if (e.target.className === 'delete') {
+    e.target.parentNode.remove(); 
   }
 };
 
@@ -33,13 +31,39 @@ const addListItem = function(e) {
   let newSpan = document.createElement('span');
   let newDelete = document.createElement('a');
   
+  let upButton = document.createElement('button');
+  let downButton = document.createElement('button');
+  upButton.appendChild(document.createTextNode('Up'));
+  downButton.appendChild(document.createTextNode('Down'));
+
   newDelete.className = "delete"
   newDelete.appendChild(document.createTextNode('Delete'));
   newSpan.appendChild(document.createTextNode(text));
   newLi.appendChild(newSpan);
-  newLi.appendChild(newDelete)
+  newLi.appendChild(newDelete);
+  newLi.appendChild(upButton);
+  newLi.appendChild(downButton);
   todayList.appendChild(newLi);  
 };
 
 const addList = document.querySelector('.add-item');
 addList.addEventListener('click', addListItem);
+
+const moveUpOrDown = function(e) {
+  if (e.target.outerText === 'Up') {
+    todayList.insertBefore(e.target.parentNode, e.target.parentNode.previousSibling);
+  } else if (e.target.outerText === 'Down') {
+    todayList.insertBefore(e.target.parentNode, e.target.parentNode.nextSibling.nextSibling);
+  }
+}
+
+let firstUpButton = document.createElement('button');
+let firstDownButton = document.createElement('button');
+firstUpButton.appendChild(document.createTextNode('Up'));
+firstDownButton.appendChild(document.createTextNode('Down'));
+
+let liFirst = document.querySelector('li');
+liFirst.appendChild(firstUpButton);
+liFirst.appendChild(firstDownButton);
+
+todayList.addEventListener('click', moveUpOrDown);

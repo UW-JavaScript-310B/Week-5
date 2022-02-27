@@ -13,10 +13,7 @@ const addListItem = function (event) {
   console.log(inputElement);
   const listElement = inputElement.previousElementSibling;
   console.log(listElement);
-  const text = input.value; // use this text to create a new <li>
-  //TODO - add logic if text is blank to default it
-  //TODO - Split this into a function
-
+  const text = input.value;
   const listItem = document.createElement(`li`);
   const listSpan = document.createElement(`span`);
   const listATag = document.createElement(`a`);
@@ -27,11 +24,7 @@ const addListItem = function (event) {
   listItem.appendChild(listSpan);
   listItem.appendChild(listATag);
   listSpan.addEventListener("click", clickListItem);
-  //console.log("TESTING");
-  //console.log(listSpan);
 
-  //TODO - figure out how to clear input box
-  //input.innerText = "";
   const lastRow =
     event.target.parentNode.previousElementSibling.querySelector(
       "li:last-child"

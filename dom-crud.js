@@ -16,8 +16,7 @@ const aTextNode = document.createTextNode('Buy Now');
 aElement.appendChild(aTextNode);
 
 //add new element to the  last <p> element
-lastP.appendChild(aElement);
-
+lastP.parentNode.insertBefore(aElement, lastP.nextSibling);
 // Access (read) the data-color attribute of the <img>,
 // log to the console
 // get the handle on <img> tag

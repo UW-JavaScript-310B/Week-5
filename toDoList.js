@@ -24,9 +24,28 @@ const addListItem = function (e) {
   const input = this.parentNode.getElementsByTagName('input')[0];
   const text = input.value; // use this text to create a new <li>
   let newListItem = document.createElement('li');
-  newListItem.appendChild(document.createTextNode(text));
+  let span = document.createElement('span');
+  let deleteClass = document.createElement('a');
+  deleteClass.classList.add('delete')
+  deleteClass.appendChild(document.createTextNode('Delete'));
+  span.appendChild(document.createTextNode(text));
+  newListItem.appendChild(span);
+  newListItem.appendChild(deleteClass);
   listParent.appendChild(newListItem);
 };
 
 const newListItem = document.getElementsByClassName('add-item')[0];
 newListItem.addEventListener('click', addListItem);
+
+
+// const addListItem = function (e) {
+//   e.preventDefault();
+//   const text = $('input').val();
+//   const $span = $('<span>').text(text);
+//   const $li = $('<li>');
+//   const $deleteClass = $('<a>').addClass('delete').html('Delete');
+//   const $newLi = ($li).append($span).append($deleteClass);
+//   $('ul.today-list').append($newLi);
+// };
+
+// $('a.add-item').on('click', addListItem);

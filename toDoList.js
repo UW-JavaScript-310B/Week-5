@@ -1,8 +1,6 @@
 // If an li element is clicked, toggle the class "done" on the <li>
 document.querySelectorAll('li').forEach(e => e.addEventListener("mousedown", function(e) {
-  if (!e.target.classList.contains("done")) {
-    e.target.parentNode.classList.add("done");
-  };
+  e.target.parentNode.classList.toggle("done");
 }));
 
 // If a delete link is clicked, delete the li element / remove from the DOM
@@ -52,21 +50,12 @@ const addListItem = function(e) {
     ulElement.appendChild(liEl);
   }
 };
-document.querySelectorAll('li').forEach(e => e.addEventListener("mousedown", function(e) {
-  if (!e.target.classList.contains("done")) {
-    e.target.parentNode.classList.add("done");
-  };
-}));
 
 const addEvent = (target, event = 'click') => {
   if (target != undefined && target != null) {
     if (target.classList.contains("delete")){
       target.addEventListener(event, function() {
         this.parentNode.remove();
-      });
-    } else if (target.nodeName.toLowerCase() == "li" && !target.classList.contains("done")) {
-      target.addEventListener(event, function() {
-        target.classList.add("done");
       });
     } else if (target.nodeName.toLowerCase() == "a" && target.getAttribute("id").indexOf("up") > -1){
       target.addEventListener(event, (e) => {

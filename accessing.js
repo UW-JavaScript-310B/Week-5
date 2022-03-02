@@ -6,4 +6,4 @@ Array.prototype.forEach.call(els, function(el) {
     el.style.color  = "orange";
 });
 // Change the class of the second <li> from to "sun" to "cloudy"
-document.getElementsByClassName("sun")[1].className = "cloudy";
+document.getElementsByClassName("sun")[0].className = "cloudy";

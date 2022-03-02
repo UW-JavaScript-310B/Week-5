@@ -36,16 +36,3 @@ const addListItem = function (e) {
 
 const newListItem = document.getElementsByClassName('add-item')[0];
 newListItem.addEventListener('click', addListItem);
-
-
-// const addListItem = function (e) {
-//   e.preventDefault();
-//   const text = $('input').val();
-//   const $span = $('<span>').text(text);
-//   const $li = $('<li>');
-//   const $deleteClass = $('<a>').addClass('delete').html('Delete');
-//   const $newLi = ($li).append($span).append($deleteClass);
-//   $('ul.today-list').append($newLi);
-// };
-
-// $('a.add-item').on('click', addListItem);
